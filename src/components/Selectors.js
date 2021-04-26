@@ -9,7 +9,6 @@ import Button from "@material-ui/core/Button";
 import React, { useContext } from "react";
 import CategorySelect from "./CategorySelect";
 import { useHistory } from "react-router-dom";
-import { useState } from "react";
 import { OptionContext } from "../context/OptionsContext";
 const useStyles = makeStyles((theme) => ({
   root: {
