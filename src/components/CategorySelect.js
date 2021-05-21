@@ -1,10 +1,10 @@
-import { useContext } from "react";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles } from "@material-ui/core";
-import { OptionContext } from "../context/OptionsContext";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCategory } from "../redux/actions";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -20,11 +20,35 @@ const useStyles = makeStyles((theme) => ({
 const categories = [
   { id: 0, title: "Any Category" },
   { id: 9, title: "General Knowledge" },
+  { id: 10, title: "Entertainment: Books" },
+  { id: 11, title: "Entertainment: Film" },
+  { id: 12, title: "Entertainment: Music" },
+  { id: 13, title: "Entertainment: Musicals &amp; Theatres" },
+  { id: 14, title: "Entertainment: Television" },
+  { id: 15, title: "Entertainment: Video Games" },
+  { id: 16, title: "Entertainment: Board Games" },
+  { id: 17, title: "Science &amp; Nature" },
+  { id: 18, title: "Science: Computers" },
+  { id: 19, title: "Science: Mathematics" },
+  { id: 20, title: "Mythology" },
+  { id: 21, title: "Sports" },
+  { id: 22, title: "Geography" },
+  { id: 23, title: "History" },
+  { id: 24, title: "Politics" },
+  { id: 25, title: "Art" },
+  { id: 26, title: "Celebrities" },
+  { id: 27, title: "Animals" },
+  { id: 28, title: "Vehicles" },
+  { id: 29, title: "Entertainment: Comics" },
+  { id: 30, title: "Science: Gadgets" },
+  { id: 31, title: "Entertainment: Japanese Anime &amp; Manga" },
+  { id: 32, title: "Entertainment: Cartoon &amp; Animations" },
 ];
 
 export default function CategorySelect() {
   const classes = useStyles();
-  const { category, setCategory } = useContext(OptionContext);
+  const { category } = useSelector((state) => state.trivia);
+  const dispatch = useDispatch();
   return (
     <FormControl variant="outlined" className={classes.formControl}>
       <InputLabel>Category</InputLabel>
@@ -33,7 +57,7 @@ export default function CategorySelect() {
         name="name"
         value={category}
         className={classes.select}
-        onChange={(e) => setCategory(e.target.value)}
+        onChange={(e) => dispatch(selectCategory(e.target.value))}
       >
         {categories.map((category) => (
           <MenuItem key={category.id} value={category.id}>
