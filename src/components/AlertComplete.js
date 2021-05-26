@@ -27,7 +27,7 @@ export default function AlertComplete(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Congratulatioan"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"Congratulation"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             You have completed trivia successfully.
