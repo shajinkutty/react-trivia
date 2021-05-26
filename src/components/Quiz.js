@@ -2,7 +2,7 @@ import { Grid, makeStyles } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Box from "@material-ui/core/Box";
 import AlertComplete from "./AlertComplete";
@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
   },
   snackBar: {
     margin: theme.spacing(5),
+  },
+  clickedAnswer: {
+    color: "red",
   },
 }));
 
@@ -72,7 +75,7 @@ export default function Quiz() {
                       key={i}
                       variant="contained"
                       color={
-                        show && item.isCorrectAnswer ? "primary" : "default"
+                        show && item.isCorrectAnswer ? "secondary" : "default"
                       }
                       disableElevation
                       className={classes.option}

@@ -17,6 +17,9 @@ export default function AlertComplete(props) {
     dispatch(triviaInitiate());
     history.push("/");
   };
+  const handleResult = () => {
+    history.push("/result");
+  };
   return (
     <div>
       <Dialog
@@ -27,12 +30,13 @@ export default function AlertComplete(props) {
         <DialogTitle id="alert-dialog-title">{"Your Score"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending
-            anonymous location data to Google, even when no apps are running.
+            Congratulation!!
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button color="primary">Show the Result</Button>
+          <Button color="primary" onClick={handleResult}>
+            Show the Result
+          </Button>
           <Button color="primary" autoFocus onClick={handleClick}>
             Start Again
           </Button>
