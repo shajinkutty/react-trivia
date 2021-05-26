@@ -2,9 +2,6 @@ import {
   Button,
   Container,
   Grid,
-  List,
-  ListItem,
-  ListItemText,
   makeStyles,
   Paper,
   Typography,
@@ -38,6 +35,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 25,
   },
   wrongAnswer: {
+    padding: ".5rem 2rem",
+    marginLeft: theme.spacing(2),
+    border: "1px solid #efefef",
+    borderRadius: 25,
     color: "red",
   },
 }));
@@ -56,7 +57,7 @@ function ResultPage() {
       <Paper className={classes.paper}>
         <Score />
         <Grid container style={{ marginBottom: 20 }}>
-          <Grid item={8}>
+          <Grid item>
             {triviaActions.map((trivia, index) => (
               <div key={index}>
                 <Typography variant="h6">
@@ -74,11 +75,11 @@ function ResultPage() {
                       key={i}
                       variant="body2"
                       className={
-                        !trivia.isAnswerCorrect && i == trivia.yourAnswer
-                          ? [classes.option, classes.wrongAnswer]
+                        !trivia.isAnswerCorrect && i === trivia.yourAnswer
+                          ? classes.wrongAnswer
                           : classes.option
                       }
-                      color={option.isCorrectAnswer ? "secondary" : "default"}
+                      color={option.isCorrectAnswer ? "secondary" : "initial"}
                     >
                       {option.title}
                     </Typography>

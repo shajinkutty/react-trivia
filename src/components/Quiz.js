@@ -2,7 +2,7 @@ import { Grid, makeStyles } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Box from "@material-ui/core/Box";
 import AlertComplete from "./AlertComplete";
@@ -93,7 +93,8 @@ export default function Quiz() {
                 : null}
             </div>
           </Grid>
-          <Grid item xs={4} justify="center" alignItems="center">
+
+          <Grid container justify="center" alignItems="center" item xs={4}>
             <Score />
           </Grid>
         </Grid>
